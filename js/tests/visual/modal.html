@@ -217,8 +217,9 @@
     <script src="../../dist/tooltip.js"></script>
     <script src="../../dist/popover.js"></script>
     <script>
-      var firefoxTestDone = false
-      document.addEventListener('DOMContentLoaded', function () {
+      var firefoxTestDone = false;
+
+      (function () {
         var ffBugTestResult = document.getElementById('ff-bug-test-result')
 
         function reportFirefoxTestResult(result) {
@@ -286,7 +287,8 @@
         })
 
         // Test transition duration
-        var t0, t1;
+        var t0
+        var t1
         var slowModal = document.getElementById('slowModal')
 
         slowModal.addEventListener('shown.bs.modal', function () {
@@ -297,7 +299,7 @@
         slowModal.addEventListener('show.bs.modal', function () {
           t0 = performance.now()
         })
-      })
+      })()
     </script>
   </body>
 </html>
